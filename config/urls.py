@@ -22,6 +22,10 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Other Apps
     path("artists/", include("dice.artists.urls", namespace="artists")),
+    path(
+        "recommendations/",
+        include("dice.recommendations.urls", namespace="recommendations"),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

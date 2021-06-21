@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Recommendation List{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <h2>Recommendation List </h2><br>
+        <ul style="list-style-type: none;">
+            {% if object %}
+                <div class="container">
+                    {% for recommend in object.0.recommends %} <!-- Last Recommendation -->
+                          <li>
+                            <img class="img-responsive img-circle" src="{{ recommend }}" name="{{ recommend }}"/> <a href="{% url "artists:detail" 22 %}" style="color: #000;"> {{recommend}}</a>
+                          </li>
+                          <hr>
+                      {% endfor %}
+                    {% else %}
+                        <li>There are no recommendation for your account.</li>
+                    {% endif %}
+                </div>
+        </ul>
+        <a href="{% url "recommendations:create" %}" class="btn btn-danger"> Create Recommendation</a>
+
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

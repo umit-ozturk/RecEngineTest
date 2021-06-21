@@ -9,6 +9,7 @@ else:
     router = SimpleRouter()
 
 router.register("users", UserViewSet)
+router.register("artists", UserViewSet)
 
 
 app_name = "api"

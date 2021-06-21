@@ -5,15 +5,28 @@
 
 {% block content %}
 <div class="container">
+    <br><br><hr><br>
+    <div class="row">
+        <div class="col-6">
+          {% if object.image_url %}
+              <img class="img-responsive" src="{{ object.image_url }}"/>
+          {% endif %}
+        </div>
+        <div class="col-6">
 
-  <div class="row">
-    <div class="col-sm-12">
-
-      {% if object.name %}
-        <h2>{{ object.name }}</h2>
-      {% endif %}
+          {% if object.name %}
+            <h2>{{ object.name }}</h2>
+              <br>
+              <a class="btn btn-primary" href="{% url 'artists:update' object.id %}" role="button">Update Artist</a>
+          {% endif %}
+        </div>
     </div>
-  </div>
+    <br><br>
+    <div class="row">
+        <div class="col-12">
+            Description: There is no any descriptions.
+        </div>
+    </div>
 
 </div>
 {% endblock content %}

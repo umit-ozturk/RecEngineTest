@@ -10,17 +10,19 @@
     <div class="col-sm-12">
 
       <h2>Artists List </h2><br>
-        <ul>
+        <ul style="list-style-type: none;">
             {% if object_list %}
-              {% for object in object_list %}
-                  <li>
-                    <img src="{{ object.image_url }}" name="{{ object.name }}"/> {{object.name}}
-                  </li>
-                  <hr>
-              {% endfor %}
-            {% else %}
-                <li>There are no artist in the system.</li>
-            {% endif %}
+                <div class="container">
+                    {% for object in object_list %}
+                          <li>
+                            <img class="img-responsive img-circle" src="{{ object.image_url }}" name="{{ object.name }}"/> <a href="{% url "artists:detail" object.id %}" style="color: #000;"> {{object.name}}</a>
+                          </li>
+                          <hr>
+                      {% endfor %}
+                    {% else %}
+                        <li>There are no artist in the system.</li>
+                    {% endif %}
+                </div>
         </ul>
     </div>
   </div>

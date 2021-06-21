@@ -5,7 +5,7 @@
 
 {% block content %}
   <h1>Update Artist</h1>
-  <form class="form-horizontal" method="post" action="{% url 'artists:update' %}">
+  <form class="form-horizontal" method="post" action="{% url 'artists:update' object.id %}">
     {% csrf_token %}
     {{ form|crispy }}
     <div class="control-group">

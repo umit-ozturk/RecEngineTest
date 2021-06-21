@@ -1,18 +1,15 @@
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-import uuid
-
 
 class User(AbstractUser):
     """Default user for Dice."""
-    id = models.UUIDField(
-        _("ID"),
-        primary_key=True,
-        default=uuid.uuid4
-    )
+
+    id = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4)
     embedding = models.JSONField(_("User Embedding"), blank=True, null=True)
 
     #: First and last name do not cover name patterns around the globe
@@ -28,3 +25,10 @@ class User(AbstractUser):
 
         """
         return reverse("users:detail", kwargs={"username": self.username})
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name = _("User")
+        verbose_name_plural = _("Users")

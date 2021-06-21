@@ -17,6 +17,7 @@ class Command(BaseCommand):
             reader = csv.reader(f)
             next(reader)
             for row in reader:
+                print(row)
                 Artist.objects.create(
                     id=row[0], name=row[1], embedding=row[2], image_url=row[3]
                 )

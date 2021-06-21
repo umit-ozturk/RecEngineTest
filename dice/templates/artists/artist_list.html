@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Artists List{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>Artists List </h2><br>
+        <ul>
+            {% if object_list %}
+              {% for object in object_list %}
+                  <li>
+                    <img src="{{ object.image_url }}" name="{{ object.name }}"/> {{object.name}}
+                  </li>
+                  <hr>
+              {% endfor %}
+            {% else %}
+                <li>There are no artist in the system.</li>
+            {% endif %}
+        </ul>
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

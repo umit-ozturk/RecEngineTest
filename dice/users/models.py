@@ -6,10 +6,26 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
+def generate_custom_user_pk():
+    """
+    Generate custom user pk for User Model.
+    Note: Just for exercise because of that
+    "Primary key is already in the database" issue didn't check.
+
+    :return: UUID as hex
+    """
+    return uuid.uuid4().hex
+
+
 class User(AbstractUser):
     """Default user for Dice."""
 
-    id = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4)
+    id = models.CharField(
+        _("ID"),
+        primary_key=True,
+        default=generate_custom_user_pk,
+        max_length=255,
+    )
     embedding = models.JSONField(_("User Embedding"), blank=True, null=True)
 
     #: First and last name do not cover name patterns around the globe

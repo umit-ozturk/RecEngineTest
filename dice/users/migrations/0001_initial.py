@@ -1,3 +1,4 @@
+from dice.users.models import generate_custom_user_pk
 import django.contrib.auth.models
 import django.contrib.auth.validators
 from django.db import migrations, models
@@ -17,9 +18,8 @@ class Migration(migrations.Migration):
             fields=[
                 (
                     "id",
-                    models.UUIDField(default=uuid.uuid4, primary_key=True,
-                                     serialize=False,
-                                     verbose_name='ID'),
+                    models.CharField(default=generate_custom_user_pk, primary_key=True,
+                                     verbose_name='ID', max_length=255),
                 ),
                 ("password", models.CharField(max_length=128, verbose_name="password")),
                 (

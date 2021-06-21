@@ -13,6 +13,8 @@ class Artist(models.Model):
 
     embedding = models.JSONField(_("Artist Embedding"), blank=True, null=True)
 
+    image_url = models.URLField(_("Artist Image Url"), null=True, blank=True)
+
     def __str__(self):
         return self.name
 

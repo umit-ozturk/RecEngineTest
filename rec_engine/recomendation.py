@@ -23,16 +23,15 @@ def k_nearest_neighbors(dataset, embedding, k):
             )
         except Exception:
             # Ignoring ValueError there are some empty features.
-            pass
+            similarities.append(0)
 
     knn_indices = sorted(
         range(len(similarities)), key=similarities.__getitem__, reverse=True
     )[:k]
-
     return dataset.iloc[knn_indices].artist_id.to_numpy()
 
 
-def get_recommendation_with_k_nearest_neighbors(k=5, user_embedding=None):
+def get_recommendation_closest_artist(k=5, user_embedding=None):
     """
 
     :param k: Specifies how many recommendations to generate for k users.
@@ -42,14 +41,20 @@ def get_recommendation_with_k_nearest_neighbors(k=5, user_embedding=None):
     if not user_embedding:
         user_embedding = [0] * 32
 
-    artist_data = pd.read_csv("artists.csv")
+    user_embedding = np.asarray(json.loads(user_embedding))
+
+    artist_data = pd.read_csv("rec_engine/data/artists.csv")
 
     # model = joblib.load("clustering.joblib")
 
-    return k_nearest_neighbors(artist_data, user_embedding, k)
+    return {
+        "recommendations": k_nearest_neighbors(
+            artist_data, user_embedding, k
+        ).tolist()
+    }
 
 
-def get_recommendation_closest_per_cluster(k, user_embedding=None):
+def get_recommendation_closest_per_cluster(k=5, user_embedding=None):
     """
 
     :param k: Number of neighbors
@@ -57,9 +62,11 @@ def get_recommendation_closest_per_cluster(k, user_embedding=None):
     :return:
     """
 
-    model = joblib.load("clustering.joblib")
-    artist_data = pd.read_csv("artists.csv")
-    user_pred = model.predict(user_embedding)
+    model = joblib.load("rec_engine/data/clustering.joblib")
+    artist_data = pd.read_csv("rec_engine/data/artists.csv")
+    user_embedding = np.asarray(json.loads(user_embedding))
+
+    user_pred = model.predict(user_embedding.reshape(1, -1))
 
     cluster_artist_ids = []
 
@@ -73,7 +80,12 @@ def get_recommendation_closest_per_cluster(k, user_embedding=None):
         except Exception:
             # Ignoring ValueError there are some empty features.
             pass
+
     artist_dataset = artist_data[
         artist_data.artist_id.isin(cluster_artist_ids)
     ]
-    return k_nearest_neighbors(artist_dataset, user_embedding, k)
+    return {
+        "recommendations": k_nearest_neighbors(
+            artist_dataset, user_embedding, k
+        ).tolist()
+    }

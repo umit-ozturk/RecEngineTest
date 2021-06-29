@@ -162,40 +162,40 @@ See detailed `cookiecutter-django Docker documentation`_.
 ScreenShots
 ----------
 
-![](docs/screenshots/1.png)
+![](/docs/screenshots/1.png)
 
-![](docs/screenshots/2.png)
+![](/docs/screenshots/2.png)
 
-![](docs/screenshots/3.png)
+![](/docs/screenshots/3.png)
 
-![](docs/screenshots/4.png)
+![](/docs/screenshots/4.png)
 
-![](docs/screenshots/5.png)
+![](/docs/screenshots/5.png)
 
-![](docs/screenshots/6.png)
+![](/docs/screenshots/6.png)
 
-![](docs/screenshots/7.png)
+![](/docs/screenshots/7.png)
 
-![](docs/screenshots/8.png)
+![](/docs/screenshots/8.png)
 
-![](docs/screenshots/9.png)
+![](/docs/screenshots/9.png)
 
-![](docs/screenshots/10.png)
+![](/docs/screenshots/10.png)
 
-![](docs/screenshots/11.png)
+![](/docs/screenshots/11.png)
 
-![](docs/screenshots/12.png)
+![](/docs/screenshots/12.png)
 
-![](docs/screenshots/13.png)
+![](/docs/screenshots/13.png)
 
-![](docs/screenshots/14.png)
+![](/docs/screenshots/14.png)
 
-![](docs/screenshots/15.png)
+![](/docs/screenshots/15.png)
 
-![](docs/screenshots/16.png)
+![](/docs/screenshots/16.png)
 
-![](docs/screenshots/17.png)
+![](/docs/screenshots/17.png)
 
-![](docs/screenshots/18.png)
+![](/docs/screenshots/18.png)
 
-![](docs/screenshots/19.png)
+![](/docs/screenshots/19.png)

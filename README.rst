@@ -17,6 +17,63 @@ Moved to settings_.
 
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
+
+Installation
+--------------
+
+Firstly to install the project you should extract the environment file under dice folder.
+
+After that;
+
+    $ docker-compose -f local.yml up -d
+
+When everything finished you can reach to site under http://127.0.0.1:8000
+
+* To create an **superuser account**, use this command::
+
+    $ python manage.py createsuperuser
+
+
+Also you should import the users and artists to system from csv otherwise system will not working properly.
+
+    $ docker-compose -f local.yml run django python manage.py load_user --path rec_engine/data/users.csv
+
+    $ docker-compose -f local.yml run django python manage.py load_artist --path rec_engine/data/artists.csv
+
+
+And to see logs
+
+    $ docker-compose -f local.yml logs --follow
+
+
+Folder Structure
+--------------
+
+compose / keeps docker files
+config / django configs.
+dice / backend folder contains apps, templates and staticfiles
+docs / project docs.
+locale / translations files
+rec_engine / recommendation engine folder
+requirements / project requirements
+
+
+API Endpoints
+--------------
+
+
+{{domain}}/api/users/ --> CRUD operations.
+  {{domain}}/api/users/me --> current user details.
+
+{{domain}}/api/artists/ --> CRUD operations.
+  {{domain}}/artists/list-all-interested-users/?artist_id=999 --> List of users which interest with related artist.
+
+
+{{domain}}/api/recommendations/ --> CRUD operations.
+  {{domain}}/recommendations/recommend-close-artist/ --> Give a recommendation for user with related method
+  {{domain}}/recommendations/recommend-per-cluster/ --> Give a recommendation for user with related method
+
+
 Basic Commands
 --------------
 
@@ -100,3 +157,45 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+
+
+ScreenShots
+----------
+
+![](docs/screenshots/1.png)
+
+![](docs/screenshots/2.png)
+
+![](docs/screenshots/3.png)
+
+![](docs/screenshots/4.png)
+
+![](docs/screenshots/5.png)
+
+![](docs/screenshots/6.png)
+
+![](docs/screenshots/7.png)
+
+![](docs/screenshots/8.png)
+
+![](docs/screenshots/9.png)
+
+![](docs/screenshots/10.png)
+
+![](docs/screenshots/11.png)
+
+![](docs/screenshots/12.png)
+
+![](docs/screenshots/13.png)
+
+![](docs/screenshots/14.png)
+
+![](docs/screenshots/15.png)
+
+![](docs/screenshots/16.png)
+
+![](docs/screenshots/17.png)
+
+![](docs/screenshots/18.png)
+
+![](docs/screenshots/19.png)

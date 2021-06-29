@@ -3,6 +3,7 @@ import uuid
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
+from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
 
@@ -32,6 +33,17 @@ class User(AbstractUser):
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
     first_name = None  # type: ignore
     last_name = None  # type: ignore
+
+    @cached_property
+    def combined_recommendations(self):
+        rec_queryset = self.recommendation.values_list("recommends", flat=True)
+        if not rec_queryset:
+            return self.recommendation.all()  # Will return None
+        rec_set = set()
+        for rec in rec_queryset:
+            if rec:
+                rec_set.update(rec["recommendations"])
+        return list(rec_set)
 
     def get_absolute_url(self):
         """Get url for user's detail view.

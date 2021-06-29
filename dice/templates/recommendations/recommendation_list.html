@@ -11,18 +11,21 @@
 
       <h2>Recommendation List </h2><br>
         <ul style="list-style-type: none;">
-            {% if object %}
+            {% if object_list %}
                 <div class="container">
-                    {% for recommend in object.0.recommends %} <!-- Last Recommendation -->
-                          <li>
-                            <img class="img-responsive img-circle" src="{{ recommend }}" name="{{ recommend }}"/> <a href="{% url "artists:detail" 22 %}" style="color: #000;"> {{recommend}}</a>
-                          </li>
-                          <hr>
-                      {% endfor %}
-                    {% else %}
-                        <li>There are no recommendation for your account.</li>
-                    {% endif %}
+                {% for data in object_list %} <!-- Last Recommendation -->
+                      <li>
+                          <b>Method:</b> {{ data.method }} - <b>Count:</b> {{ data.count }} - <b>Recommends:</b>
+                          {% for key, value in data.recommends.items %}
+                              {{ value }}
+                          {% endfor %}
+                      </li>
+                      <hr>
+                  {% endfor %}
+            {% else %}
+                    <li>There are no recommendation for your account.</li>
                 </div>
+            {% endif %}
         </ul>
         <a href="{% url "recommendations:create" %}" class="btn btn-danger"> Create Recommendation</a>
 

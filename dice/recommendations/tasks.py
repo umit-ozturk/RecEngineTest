@@ -23,6 +23,7 @@ def recommend_closest_artist(rec_id, k, user_embedding):
     rec_obj = Recommendation.objects.get(id=rec_id)
     rec_obj.recommends = recommendations
     rec_obj.save()
+    return True
 
 
 @celery_app.task()
@@ -38,6 +39,7 @@ def recommend_closest_per_cluster(rec_id, k, user_embedding):
     rec_obj = Recommendation.objects.get(id=rec_id)
     rec_obj.recommends = recommendations
     rec_obj.save()
+    return True
 
 
 @celery_app.task()

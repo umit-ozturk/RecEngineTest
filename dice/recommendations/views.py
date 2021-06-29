@@ -45,4 +45,10 @@ class RecommendationListView(LoginRequiredMixin, ListView):
     model = Recommendation
 
     def get_queryset(self):
-        return Recommendation.objects.filter(user=self.request.user.username)
+        return Recommendation.objects.filter(user=self.request.user)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(RecommendationListView, self).get_context_data()
+        print(context)
+        print("-----------")
+        return context

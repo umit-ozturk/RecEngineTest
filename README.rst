@@ -162,40 +162,59 @@ See detailed `cookiecutter-django Docker documentation`_.
 ScreenShots
 ----------
 
-![](/docs/screenshots/1.png)
+.. image:: /docs/screenshots/1.png
+  :width: 400
 
-![](/docs/screenshots/2.png)
+.. image:: /docs/screenshots/2.png
+  :width: 400
 
-![](/docs/screenshots/3.png)
+.. image:: /docs/screenshots/3.png
+  :width: 400
 
-![](/docs/screenshots/4.png)
+.. image:: /docs/screenshots/4.png
+  :width: 400
 
-![](/docs/screenshots/5.png)
+.. image:: /docs/screenshots/5.png
+  :width: 400
 
-![](/docs/screenshots/6.png)
+.. image:: /docs/screenshots/6.png
+  :width: 400
 
-![](/docs/screenshots/7.png)
+.. image:: /docs/screenshots/7.png
+  :width: 400
 
-![](/docs/screenshots/8.png)
+.. image:: /docs/screenshots/8.png
+  :width: 400
 
-![](/docs/screenshots/9.png)
+.. image:: /docs/screenshots/9.png
+  :width: 400
 
-![](/docs/screenshots/10.png)
+.. image:: /docs/screenshots/10.png
+  :width: 400
 
-![](/docs/screenshots/11.png)
+.. image:: /docs/screenshots/11.png
+  :width: 400
 
-![](/docs/screenshots/12.png)
+.. image:: /docs/screenshots/12.png
+  :width: 400
 
-![](/docs/screenshots/13.png)
+.. image:: /docs/screenshots/13.png
+  :width: 400
 
-![](/docs/screenshots/14.png)
+.. image:: /docs/screenshots/14.png
+  :width: 400
 
-![](/docs/screenshots/15.png)
+.. image:: /docs/screenshots/15.png
+  :width: 400
 
-![](/docs/screenshots/16.png)
+.. image:: /docs/screenshots/16.png
+  :width: 400
 
-![](/docs/screenshots/17.png)
+.. image:: /docs/screenshots/17.png
+  :width: 400
 
-![](/docs/screenshots/18.png)
+.. image:: /docs/screenshots/18.png
+  :width: 400
 
-![](/docs/screenshots/19.png)
+.. image:: /docs/screenshots/19.png
+  :width: 400
